@@ -1,48 +1,63 @@
 # Job Search Agent Configuration
 
 user_profile:
-  name: "Your Name"
-  title: "Your Professional Title"
-  email: "your.email@example.com"
-  phone: "+1234567890"
-  location: "City, Country"
-  experience: "5 years"
+  name: "Hamza Asif"
+  title: "React js Developer | AI Student"
+  email: "hamza.asif0087@gmail.com"
+  phone: "+921-9519624"  # <- Replace with your real phone number
+  location: "Lahore, Pakistan"
+  experience: "1+ years (Internships & Projects)"
   education:
-    - degree: "Bachelor of Science"
-      field: "Computer Science"
-      institution: "University Name"
-      year: 2020
+    - degree: "BS (Hons)"
+      field: "Artificial Intelligence"
+      institution: "University of Management and Technology (UMT)"
+      year: 2026
   skills:
+    - "React.js"
+    - "Next.js"
+    - "Redux Toolkit"
+    - "Express.js"
+    - "Tailwind CSS"
+    - "JavaScript"
     - "Python"
-    - "Data Analysis"
+    - "Flask"
     - "Machine Learning"
-    - "Web Development"
-    - "Project Management"
-  resume_path: "path/to/your/resume.pdf"
-  portfolio_url: "https://yourportfolio.com"
-  github_url: "https://github.com/yourusername"
-  linkedin_url: "https://linkedin.com/in/yourusername"
+    - "UI/UX Design"
+    - "Git & GitHub"
+  resume_path: "C:/Users/MADIHA/Desktop/Hamza_Asif_Resume_Updated-1.pdf"  # Ensure this path is correct
+  portfolio_url: "https://hamzaasif043.github.io/Porfolio/"
+  github_url: "https://github.com/HaMZAAsif043"
+  linkedin_url: "https://linkedin.com/in/hamzaasif043"
 
 job_search:
-  job_types: 
+  job_types:
     - "Full-time"
     - "Contract"
     - "Freelance"
-  experience_level: 
+  experience_level:
+    - "Junior-level"
     - "Mid-level"
-    - "Senior"
+    - "Internship"  # Optional: keep if you still want to consider internships too
   remote: true
-  locations: 
-    - "New York, NY"
+  locations:
+    - "Lahore, PK"
+    - "Sahiwal, PK"
+    - "Karachi, PK"
+    - "Sahiwal, PK"
+    - "Pakistan, PK"
     - "Remote"
   salary_range:
-    min: 80000
-    max: 150000
+    min: 500
+    max: 2500
     currency: "USD"
   keywords:
-    - "Python Developer"
-    - "Data Scientist"
+    - "React Developer"
+    - "Nextjs Developer"
+    - "MERN Stack Developer"
     - "Full Stack Developer"
+    - "Front-End Developer"
+    - "Junior Web Developer"
+    - "AI Intern"
   exclude_keywords:
     - "PHP"
     - "WordPress"
@@ -50,47 +65,63 @@ job_search:
 platforms:
   linkedin:
     enabled: true
-    show_browser: false  # Set to true to see the browser automation
+    show_browser: true
     credentials:
-      username: "your_username"
-      password: "your_password"
+      username: "hamza.asif0087@gmail.com"
+      password: "fH2iqR96E.fX_8v"
     search_criteria:
-      post_days: 7  # Search for jobs posted in the last 7 days
-      location_distance: 25  # Search within 25 miles of specified locations
+      post_days: 7
+      location_distance: 25
 
   indeed:
-    enabled: true
-    show_browser: false
-    credentials: {}  # No login required for basic job search
+    enabled: false
+    show_browser: true
+    credentials:
+      username: ""
+      password: ""
     search_criteria:
       post_days: 14
       location_distance: 50
 
   upwork:
-    enabled: true
-    show_browser: false
+    enabled: false
+    show_browser: true
+    credentials:
+      username: "hamza.asif0087@gmail.com"
+      password: "Thyroxin@43"
+    search_criteria:
+      hourly_rate:
+        min: 10
+        max: 30
+      duration: "Less than 1 month"
+
+  fiverr:
+    enabled: false
+    show_browser: true
     credentials:
       username: "your_username"
       password: "your_password"
     search_criteria:
-      hourly_rate:
-        min: 40
-        max: 100
-      duration: "Less than 1 month"  # short-term projects
+      gig_categories:
+        - "Programming & Tech"
+        - "Digital Marketing"
+      price_range:
+        min: 50
+        max: 500
 
 application:
-  auto_apply: false  # Set to true for automatic applications (use with caution)
+  auto_apply: false
   cover_letter_template: "templates/cover_letter.jinja"
   daily_application_limit: 10
 
 notifications:
   email:
     enabled: true
-    address: "your.email@example.com"
+    address: "hamza.asif0087@gmail.com"
   desktop:
     enabled: true
 
 scheduler:
   enabled: true
-  frequency: "daily"  # 'daily', 'hourly', 'weekly'
-  time: "09:00"  # When to run the job search
+  frequency: "daily"
+  time: "09:00"

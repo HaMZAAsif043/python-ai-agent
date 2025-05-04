@@ -8,6 +8,8 @@ import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -42,8 +44,9 @@ class LinkedinConnector(BaseConnector):
             chrome_options.add_argument('--no-sandbox')
             chrome_options.add_argument('--disable-dev-shm-usage')
             
-            # Initialize Chrome driver
-            self._driver = webdriver.Chrome(options=chrome_options)
+            # Initialize Chrome driver with webdriver-manager
+            service = Service(ChromeDriverManager().install())
+            self._driver = webdriver.Chrome(service=service, options=chrome_options)
             
             # Navigate to LinkedIn login page
             self._driver.get(f"{self.base_url}/login")
@@ -63,13 +66,18 @@ class LinkedinConnector(BaseConnector):
             # Submit login form
             password_field.submit()
             
-            # Wait for login to complete
-            WebDriverWait(self._driver, 10).until(
-                EC.url_contains("feed")
-            )
-            
-            logger.info("Successfully logged in to LinkedIn")
-            return True
+            # Wait for login to complete (more flexible approach)
+            try:
+                WebDriverWait(self._driver, 15).until(
+                    lambda driver: "feed" in driver.current_url or 
+                                   "checkpoint" in driver.current_url or
+                                   "add-phone" in driver.current_url
+                )
+                logger.info("Successfully logged in to LinkedIn")
+                return True
+            except TimeoutException:
+                logger.error("Login process timed out - please check your credentials")
+                return False
             
         except Exception as e:
             logger.error(f"Failed to authenticate with LinkedIn: {str(e)}")
@@ -113,7 +121,7 @@ class LinkedinConnector(BaseConnector):
                     
                     # Add job type filters
                     job_type_params = self._get_job_type_params(job_types)
-                    if job_type_params:
+                    if (job_type_params):
                         search_params += job_type_params
                     
                     # Add experience level filters
