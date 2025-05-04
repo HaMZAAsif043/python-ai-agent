@@ -1,0 +1,33 @@
+Dear {{ job.company }} Hiring Team,
+
+I am writing to express my interest in the {{ job.title }} position that I found on {{ job.platform }}. With {{ user.experience }} of experience in {{ user.title }} roles, I believe I would be a valuable addition to your team.
+
+{% if job.skills %}
+I noticed that you're looking for someone with expertise in {{ job.skills|join(", ") }}, which aligns perfectly with my background. Throughout my career, I've developed strong skills in these areas through my work on various projects.
+{% endif %}
+
+{% if user.skills %}
+My key skills include:
+{% for skill in user.skills %}
+- {{ skill }}
+{% endfor %}
+{% endif %}
+
+{% if job.description %}
+I was particularly drawn to this opportunity because {{ job.custom_interest }}. I believe my experience with {{ job.most_relevant_skill }} makes me well-suited to help with your specific needs.
+{% endif %}
+
+I would welcome the opportunity to discuss how my background, skills and experiences would benefit {{ job.company }}. I am available for an interview at your convenience.
+
+Thank you for considering my application. I look forward to the possibility of working with your team.
+
+Sincerely,
+{{ user.name }}
+{{ user.email }}
+{{ user.phone }}
+{% if user.portfolio_url %}
+Portfolio: {{ user.portfolio_url }}
+{% endif %}
+{% if user.linkedin_url %}
+LinkedIn: {{ user.linkedin_url }}
+{% endif %}

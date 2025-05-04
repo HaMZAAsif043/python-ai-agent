@@ -1,0 +1,96 @@
+# Job Search Agent Configuration
+
+user_profile:
+  name: "Your Name"
+  title: "Your Professional Title"
+  email: "your.email@example.com"
+  phone: "+1234567890"
+  location: "City, Country"
+  experience: "5 years"
+  education:
+    - degree: "Bachelor of Science"
+      field: "Computer Science"
+      institution: "University Name"
+      year: 2020
+  skills:
+    - "Python"
+    - "Data Analysis"
+    - "Machine Learning"
+    - "Web Development"
+    - "Project Management"
+  resume_path: "path/to/your/resume.pdf"
+  portfolio_url: "https://yourportfolio.com"
+  github_url: "https://github.com/yourusername"
+  linkedin_url: "https://linkedin.com/in/yourusername"
+
+job_search:
+  job_types: 
+    - "Full-time"
+    - "Contract"
+    - "Freelance"
+  experience_level: 
+    - "Mid-level"
+    - "Senior"
+  remote: true
+  locations: 
+    - "New York, NY"
+    - "Remote"
+  salary_range:
+    min: 80000
+    max: 150000
+    currency: "USD"
+  keywords:
+    - "Python Developer"
+    - "Data Scientist"
+    - "Full Stack Developer"
+  exclude_keywords:
+    - "PHP"
+    - "WordPress"
+
+platforms:
+  linkedin:
+    enabled: true
+    show_browser: false  # Set to true to see the browser automation
+    credentials:
+      username: "your_username"
+      password: "your_password"
+    search_criteria:
+      post_days: 7  # Search for jobs posted in the last 7 days
+      location_distance: 25  # Search within 25 miles of specified locations
+
+  indeed:
+    enabled: true
+    show_browser: false
+    credentials: {}  # No login required for basic job search
+    search_criteria:
+      post_days: 14
+      location_distance: 50
+
+  upwork:
+    enabled: true
+    show_browser: false
+    credentials:
+      username: "your_username"
+      password: "your_password"
+    search_criteria:
+      hourly_rate:
+        min: 40
+        max: 100
+      duration: "Less than 1 month"  # short-term projects
+
+application:
+  auto_apply: false  # Set to true for automatic applications (use with caution)
+  cover_letter_template: "templates/cover_letter.jinja"
+  daily_application_limit: 10
+
+notifications:
+  email:
+    enabled: true
+    address: "your.email@example.com"
+  desktop:
+    enabled: true
+
+scheduler:
+  enabled: true
+  frequency: "daily"  # 'daily', 'hourly', 'weekly'
+  time: "09:00"  # When to run the job search
